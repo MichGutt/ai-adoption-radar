@@ -21,3 +21,7 @@ It combines these signals to identify likely adoption blockers, show the support
 ## Hackathon
 
 Built during the AI.WOMEN Hackathon 2026.
+
+## Development status
+
+Initial repository setup complete.
