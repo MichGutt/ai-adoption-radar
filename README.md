@@ -1,75 +1,88 @@
 # AI Adoption Radar
 
-## Selected working version — 13 September 2026
+AI-powered diagnostic tool to identify what is blocking AI adoption in organizations.
 
-The team selected the supplied `index Kopie.html` as the basis for further work.
-Its design, copy and interactions have been imported unchanged into **`public/index.html`**.
-This is the active prototype and the file to edit for changes to the selected variant.
+## Problem
 
-The prototype follows **Data → Diagnosis → Recommendations**, with four adoption signals:
-relevance, trust and anxiety, skills, and governance. Its built-in synthetic profile
-prioritizes trust and anxiety.
+Many organizations invest in AI tools, training and guidelines, but adoption still differs significantly across teams.
 
-## Open the prototype
+The challenge is often not knowing whether the main blocker is trust, relevance, skills, governance or leadership.
 
-With Node.js 22+ and pnpm 11.19.0 installed:
+## Our idea
+
+The AI Adoption Radar analyzes different organizational signals such as:
+
+- aggregated AI usage data
+- anonymized employee feedback
+- AI guidelines and policies
+
+It combines these signals to identify likely adoption blockers, show the supporting evidence and recommend concrete next actions.
+
+## Hackathon
+
+Built during the AI.WOMEN Hackathon 2026.
+
+## Development status
+
+Initial repository setup complete.
+
+## Current Next.js prototype
+
+The English interface from `index Kopie (1).html` is implemented in React in
+`app/page.tsx`, with the reference styles in `app/globals.css`. It follows
+Data → Diagnosis → Recommendations and uses the Customer Service demo scenario
+with Relevance as the primary blocker (action priority 87/100).
+
+The active interface uses Next.js, React and TypeScript. No static HTML rewrite
+or iframe is used. Team changes and sample data from `origin/main` are retained.
+
+### Run locally
+
+Requires Node.js 22+ and pnpm 11.19.0.
 
 ```sh
 pnpm install
 pnpm dev
 ```
 
-Open **http://127.0.0.1:3000** in a browser. Stop the server with Ctrl+C.
-Alternatively, open `public/index.html` directly in a browser; the selected prototype
-is self-contained and needs no server or external services.
-
-For the demo, click **Demo-Datensatz verwenden**, then **Analysieren**.
-Explore **Mehr Infos**, continue to **Zu den Empfehlungen**, and try **Ja, Plan erstellen**.
-
-## Technical integration
-
-- Next.js, TypeScript and Tailwind CSS remain installed from the first dashboard.
-- `next.config.ts` serves `public/index.html` at `/` using a `beforeFiles` rewrite.
-- The selected interface is currently plain HTML/CSS/JavaScript, not a React conversion.
-- The previous React dashboard in `app/` remains preserved but is not the active start view.
-- File reading and calculations happen locally in the browser.
-- No backend, AI API, storage or external integrations are connected.
-- The existing Next.js build can still be used for Vercel. No deployment has been performed.
+Open http://127.0.0.1:3000. Use **Use demo dataset → Analyze → View recommendations**.
 
 ```sh
+pnpm typecheck
 pnpm build
 pnpm start
 ```
 
-## Actual implementation and known gaps
+### Implementation boundaries
 
-The supplied README describes a more extensive MVP than the supplied HTML implements.
-It is preserved verbatim as `docs/selected-variant-original-readme.md` for reference;
-its feature and research claims should not be read as verified implementation status.
+- `lib/analysis.ts` contains CSV parsing, training metrics and the weighted scoring
+  formulas from the latest HTML. `lib/scenarios.ts` contains its scenario copy.
+- CSV processing takes place in the browser. Missing metrics use the synthetic
+  demo profile, as in the reference; the interface labels that fallback.
+- XLSX, PDF and Word contents are not parsed. No AI service or backend is connected.
+- Evidence for Relevance retains the reference's 120-person demo cohort and
+  illustrative employee statements; it is not a verified analysis of real feedback.
+- The accompanying reference README describes additional features (JSON validation,
+  department selection, history and correlations) absent from the HTML; these
+  were not added as part of this migration.
+- The reference links to `customer-service-ai-use-case-discovery-workshop-v3.pptx`
+  and `.pdf`. Neither file was supplied. Download controls are therefore disabled
+  with an explanation; the workshop action displays a local preview state only.
+- Sample data remains unchanged. No deployment has been performed.
 
-The selected HTML currently:
+### Team notes and reference files
 
-- Provides file selection and drag-and-drop for three source categories, a synthetic
-  demo profile, a demo CSV download, four weighted signal scores, expandable explanations,
-  and recommendations for the highest-scoring signal. Higher scores mean greater need for action.
-- Parses CSV files only. Although the interface accepts XLSX, PDF and Word files, their
-  contents are not parsed or used as context. JSON parsing is not implemented.
-- Substitutes demo values for missing CSV metrics, or the entire demo profile if no usable
-  CSV values are found. This is a prototype fallback, not evidence extracted from those files.
-- Averages recognized CSV values across rows. Department selection, measurement history,
-  Pearson correlations, required-field validation and a minimum-headcount check are absent.
-- Uses weighted scores to select one priority; the threshold-based multi-pathway rule engine
-  described in the supplied README is not implemented.
-- Shows a confirmation after **Ja, Plan erstellen**; it does not generate or save an actual
-  plan with owners, dates or success measures.
-
-Use synthetic demo data while developing this version. The existing gaps are documented
-here without silently changing the team's selected design or behavior during import.
-
-## Reference files
-
-- `docs/selected-variant-original-readme.md`: supplied product concept, unchanged.
-- `docs/previous-dashboard-readme.md`: documentation of the earlier React dashboard.
-- `sample_data/`: existing sample-data placeholder.
-
-Built for the AI.WOMEN Hackathon 2026.
+- The prototype supports three source categories, file selection and drag-and-drop,
+  a synthetic demo profile, CSV download, four weighted action-priority scores,
+  expandable explanations and recommendations for the highest-scoring signal.
+- Higher scores indicate greater need for action, not stronger adoption health.
+- Required-field validation, a minimum-headcount check, department selection,
+  measurement history and Pearson correlations are not implemented. Use synthetic data.
+- No backend, authentication, storage or external integration is connected.
+- The Next.js project can be deployed using Vercel's Next.js preset.
+- `docs/selected-variant-original-readme.md` preserves the earlier product concept;
+  its feature and research claims are not verified implementation status.
+- `docs/previous-dashboard-readme.md` documents the earlier React dashboard.
+- `public/index.html` preserves the earlier HTML prototype and is not the current start page.
+- `sample_data/` contains the team's Customer Service usage, employee survey,
+  training and AI use case examples, preserved unchanged from `origin/main`.

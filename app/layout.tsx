@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'AI Adoption Radar | Marketing overview',
-  description: 'Understand what is holding AI adoption back. Explore a synthetic demo diagnosis, evidence and recommended intervention.'
+  title: 'AI Adoption Radar',
+  description: 'AI Adoption Radar: data upload, diagnosis and recommendations for AI adoption.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
