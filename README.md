@@ -24,7 +24,22 @@ Built during the AI.WOMEN Hackathon 2026.
 
 ## Development status
 
-Initial repository setup complete.
+*Functional MVP completed.**
+
+The prototype demonstrates the full flow from organizational data to diagnosis, evidence, recommendation and a ready-to-use intervention.
+
+## Demo scenario
+
+The Customer Service demo shows why looking at AI usage alone can lead to the wrong intervention.
+
+- Only 14 of 120 licensed employees are recurring AI users.
+- 88% completed AI Basics training.
+- Employees generally understand how to use AI and know the relevant rules.
+- Employee feedback indicates uncertainty about relevant day-to-day use cases.
+
+The Radar therefore identifies **Relevance** as the primary blocker and recommends a **role-specific AI Use Case Discovery Workshop** instead of another generic training.
+
+**Diagnosis → Evidence → Recommendation → Ready-to-use Action**
 
 ## Current Next.js prototype
 
