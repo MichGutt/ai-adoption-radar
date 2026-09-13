@@ -33,10 +33,8 @@ The English interface from `index Kopie (1).html` is implemented in React in
 Data → Diagnosis → Recommendations and uses the Customer Service demo scenario
 with Relevance as the primary blocker (action priority 87/100).
 
-The current `final-website-update` branch originally contained only the initial
-README and sample-data placeholder. The existing Next.js project configuration
-was recovered from the local `michelle-prototype-ui` branch without merging or
-changing sample data. No static HTML rewrite or iframe is used.
+The active interface uses Next.js, React and TypeScript. No static HTML rewrite
+or iframe is used. Team changes and sample data from `origin/main` are retained.
 
 ### Run locally
 
@@ -70,4 +68,21 @@ pnpm start
 - The reference links to `customer-service-ai-use-case-discovery-workshop-v3.pptx`
   and `.pdf`. Neither file was supplied. Download controls are therefore disabled
   with an explanation; the workshop action displays a local preview state only.
-- Sample data remains unchanged. No commit, push or deployment was performed.
+- Sample data remains unchanged. No deployment has been performed.
+
+### Team notes and reference files
+
+- The prototype supports three source categories, file selection and drag-and-drop,
+  a synthetic demo profile, CSV download, four weighted action-priority scores,
+  expandable explanations and recommendations for the highest-scoring signal.
+- Higher scores indicate greater need for action, not stronger adoption health.
+- Required-field validation, a minimum-headcount check, department selection,
+  measurement history and Pearson correlations are not implemented. Use synthetic data.
+- No backend, authentication, storage or external integration is connected.
+- The Next.js project can be deployed using Vercel's Next.js preset.
+- `docs/selected-variant-original-readme.md` preserves the earlier product concept;
+  its feature and research claims are not verified implementation status.
+- `docs/previous-dashboard-readme.md` documents the earlier React dashboard.
+- `public/index.html` preserves the earlier HTML prototype and is not the current start page.
+- `sample_data/` contains the team's Customer Service usage, employee survey,
+  training and AI use case examples, preserved unchanged from `origin/main`.
